@@ -1,0 +1,72 @@
+<routes>
+    <!-- <vType accel="3.0" decel="5.0" id="Car" length="4.0" maxSpeed="10.0" sigma="0.0" carFollowModel="CACC" />
+    <vType accel="3.0" decel="5.0" id="Bus" length="12.0" maxSpeed="10.0" sigma="0.0" carFollowModel="CACC" />
+    <vType accel="3.0" decel="5.0" id="Bus2" length="6.0" maxSpeed="20.0" sigma="0.0" carFollowModel="CACC" />
+    <vType accel="3.0" decel="10.0" id="Bus3" length="8.0" maxSpeed="20.0" sigma="0.0" carFollowModel="CACC" /> -->
+
+    <!-- <vType accel="6.0" decel="8.0" id="Car" length="4.0" maxSpeed="30.0" sigma="0.0" carFollowModel="CACC" actionStepLength="0"/> -->
+
+    <!-- <vType accel="6.0" decel="8.0" id="Car" length="4.0" maxSpeed="30.0" sigma="0.0" carFollowModel="Krauss"/> -->
+
+    <vType accel="6.0" decel="8.0" id="Car" length="4.0" maxSpeed="30.0" minSpeed="5.0" sigma="0" carFollowModel="KraussOrig1" actionStepLength="1.5" />
+
+
+    <vType accel="6.0" decel="8.0" id="Car2" length="4.0" maxSpeed="30.0" minSpeed="5.0" sigma="0"/>
+    
+    <!-- <vType accel="6.0" decel="8.0" id="Car" length="4.0" maxSpeed="30.0" sigma="0.0"/> -->
+
+    <route id="route0" edges="1to2"/>
+    <vehicle depart="0" id="veh0" route="route0" type="Car" departLane="0" departPos="640" departSpeed="30"/>
+    <vehicle depart="0" id="veh1" route="route0" type="Car" departLane="0" departPos="596" departSpeed="30"/> 
+    <vehicle depart="0" id="veh2" route="route0" type="Car" departLane="0" departPos="552" departSpeed="30"/>
+    <vehicle depart="0" id="veh3" route="route0" type="Car" departLane="0" departPos="508" departSpeed="30"/>
+
+    <vehicle depart="0" id="veh4" route="route0" type="Car" departLane="0" departPos="464" departSpeed="30"/>
+    <vehicle depart="0" id="veh5" route="route0" type="Car" departLane="0" departPos="420" departSpeed="30"/> 
+    <vehicle depart="0" id="veh6" route="route0" type="Car" departLane="0" departPos="376" departSpeed="30"/>
+    <vehicle depart="0" id="veh7" route="route0" type="Car" departLane="0" departPos="332" departSpeed="30"/>
+
+    <vehicle depart="0" id="veh8" route="route0" type="Car" departLane="0" departPos="288" departSpeed="30"/>
+    <vehicle depart="0" id="veh9" route="route0" type="Car" departLane="0" departPos="244" departSpeed="30"/>
+    <vehicle depart="0" id="veh10" route="route0" type="Car" departLane="0" departPos="200" departSpeed="30"/>  
+
+
+    <!-- <route id="route0" edges="1to2"/>
+    <vehicle depart="0" id="veh0" route="route0" type="Car" departLane="0" departPos="800" departSpeed="30"/>
+    <vehicle depart="0" id="veh1" route="route0" type="Car" departLane="0" departPos="740" departSpeed="30"/> 
+    <vehicle depart="0" id="veh2" route="route0" type="Car" departLane="0" departPos="680" departSpeed="30"/>
+    <vehicle depart="0" id="veh3" route="route0" type="Car" departLane="0" departPos="620" departSpeed="30"/>
+
+    <vehicle depart="0" id="veh4" route="route0" type="Car" departLane="0" departPos="560" departSpeed="30"/>
+    <vehicle depart="0" id="veh5" route="route0" type="Car" departLane="0" departPos="500" departSpeed="30"/> 
+    <vehicle depart="0" id="veh6" route="route0" type="Car" departLane="0" departPos="440" departSpeed="30"/>
+    <vehicle depart="0" id="veh7" route="route0" type="Car" departLane="0" departPos="380" departSpeed="30"/>
+
+    <vehicle depart="0" id="veh8" route="route0" type="Car" departLane="0" departPos="320" departSpeed="30"/>
+    <vehicle depart="0" id="veh9" route="route0" type="Car" departLane="0" departPos="260" departSpeed="30"/>
+    <vehicle depart="0" id="veh10" route="route0" type="Car" departLane="0" departPos="200" departSpeed="30"/>   -->
+
+
+
+    <!-- <route id="route0" edges="1to2"/>
+    <vehicle depart="0" id="veh0" route="route0" type="Car" departLane="0" departPos="1122" departSpeed="30"/>
+    <vehicle depart="0" id="veh1" route="route0" type="Car" departLane="0" departPos="1020" departSpeed="30"/> 
+    <vehicle depart="0" id="veh2" route="route0" type="Car" departLane="0" departPos="918" departSpeed="30"/>
+    <vehicle depart="0" id="veh3" route="route0" type="Car" departLane="0" departPos="816" departSpeed="30"/>
+
+    <vehicle depart="0" id="veh4" route="route0" type="Car" departLane="0" departPos="714" departSpeed="30"/>
+    <vehicle depart="0" id="veh5" route="route0" type="Car" departLane="0" departPos="612" departSpeed="30"/> 
+    <vehicle depart="0" id="veh6" route="route0" type="Car" departLane="0" departPos="510" departSpeed="30"/>
+    <vehicle depart="0" id="veh7" route="route0" type="Car" departLane="0" departPos="408" departSpeed="30"/>
+
+    <vehicle depart="0" id="veh8" route="route0" type="Car" departLane="0" departPos="306" departSpeed="30"/>
+    <vehicle depart="0" id="veh9" route="route0" type="Car" departLane="0" departPos="204" departSpeed="30"/>
+    <vehicle depart="0" id="veh10" route="route0" type="Car" departLane="0" departPos="102" departSpeed="30"/> -->
+
+
+    <!-- <vehicle depart="10" id="veh0" route="route0" type="Bus"/>   -->
+    
+    <!-- <route id="route1" edges="1to2 2to3 3to4 out"/> -->
+    <!-- <route id="route2" edges="3to4 out"/>
+    <vehicle depart="30" id="veh2" route="route2" type="Car"/>  -->
+</routes>

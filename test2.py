@@ -30,7 +30,7 @@ for i in range(11):
     allSpeed.append(0)
     allACC.append(0)
 
-
+# 0817
 def calRiskSpeed(notice):
     if step % 2 == 0:
         for i in range(1, 11):

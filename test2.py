@@ -32,28 +32,60 @@ for i in range(11):
 
 # 0817
 def calRiskSpeed(notice):
-    if step % 2 == 0:
+    if step % 1 == 0:
         for i in range(1, 11):
             now = "veh"+str(i)
             front = "veh"+str(i-1)
             gap = abs(traci.vehicle.getPosition(now)[0]-traci.vehicle.getPosition(front)[0]) - 4
             allACC[i] = calFollowSpeed(allSpeed[i], allSpeed[i-1], gap, notice, 8)
-            temp = allSpeed[i-1]
+            frontSpeed = allSpeed[i-1]
+            nowSpeed = allSpeed[i]
             followRisk = allACC[i] / 8
-            if followRisk != 1:
-                solve_value = solve([((x**2 * 8)/(temp + 2*8*(gap - x * notice)) / 8) - 1],[x])
-                if "-" in str(solve_value[0]):
-                    characters = "(),"
-                    tempString = str(solve_value[1])
+            if followRisk >= 1:
+                solve_value = solve([((nowSpeed**2 * 8)/(frontSpeed**2 + 2*8*(x - nowSpeed * notice)) / 8) - 1],[x])
+                # print("nowSpeed: "+str(nowSpeed)+" frontSpeed: "+str(frontSpeed)+" safetyDistace: "+ str(solve_value))
+                if ":" in str(solve_value):
+                    characters = "{,x:}"
+                    tempString = str(solve_value)
                     for i in range(len(characters)):
                         tempString = tempString.replace(characters[i], "")
-                    traci.vehicle.setSpeed(now, Decimal(tempString))
-                else:
-                    characters = "(),"
-                    tempString = str(solve_value[0])
-                    for i in range(len(characters)):
-                        tempString = tempString.replace(characters[i], "")
-                    traci.vehicle.setSpeed(now, Decimal(tempString))
+                    saftyDistace = float(tempString)
+                if saftyDistace > gap:
+                    crashTime = gap / (nowSpeed)
+                    distaceOffset = saftyDistace - gap
+                    if crashTime <= notice:
+                        distaceOffset10 = (distaceOffset / 8) / 10
+                    else:
+                        oneSecondPlus = distaceOffset / crashTime
+                        distaceOffset10 = (distaceOffset / oneSecondPlus) / 10
+                    print("distaceOffset10: "+str(distaceOffset10 * 10))
+                    if traci.vehicle.getSpeed(now) - distaceOffset10 > 0:
+                        newSpeed = traci.vehicle.getSpeed(now) - distaceOffset10
+                        traci.vehicle.setSpeed(now, newSpeed)
+                elif abs(saftyDistace - gap) <= 0.1:
+                    return 0
+                elif saftyDistace < gap:
+                    distaceOffset = gap - saftyDistace
+                    distaceOffset10 = (distaceOffset / 6) 
+                    newSpeed = traci.vehicle.getSpeed(now) + distaceOffset / 2
+                    traci.vehicle.setSpeed(now, newSpeed)
+
+
+
+            
+
+            # if "-" in str(solve_value[0]):
+            #     characters = "(),"
+            #     tempString = str(solve_value[1])
+            #     for i in range(len(characters)):
+            #         tempString = tempString.replace(characters[i], "")
+            #     traci.vehicle.setSpeed(now, Decimal(tempString))
+            # else:
+            #     characters = "(),"
+            #     tempString = str(solve_value[0])
+            #     for i in range(len(characters)):
+            #         tempString = tempString.replace(characters[i], "")
+            #     traci.vehicle.setSpeed(now, Decimal(tempString))
                 
                 # print(solve_value)
             # if i % 10 == 1:
